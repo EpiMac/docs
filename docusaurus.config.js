@@ -14,13 +14,13 @@ const config = {
     url: 'https://docs.epimac.org',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: "/",
+    baseUrl: "/docs/",
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'epimac', // Usually your GitHub org/user name.
     projectName: 'docs', // Usually your repo name.
-    trailingSlash: false,
+    trailingSlash: true,
     deploymentBranch: 'main',
 
     onBrokenLinks: 'throw',
