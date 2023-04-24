@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'Epimac Documentation',
-    tagline: 'Documentation for Epimac',
+    tagline: 'Documentation and tutorials for IONIS students',
     favicon: 'img/favicon.ico',
 
     // Set the production url of your site here
@@ -40,13 +40,9 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
                     sidebarPath: require.resolve('./sidebars.js'),
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    // editUrl: 'https://github.com/epimac',
-                },
-                blog: {
-                    showReadingTime: true,
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     // editUrl: 'https://github.com/epimac',
@@ -64,19 +60,18 @@ const config = {
             // Replace with your project's social card
             image: 'img/docusaurus-social-card.jpg',
             navbar: {
-                title: 'Epimac Documentation',
+                title: 'Epimac',
                 logo: {
                     alt: 'Epimac Logo',
-                    src: 'img/epimac_white.png',
+                    src: 'img/epimac_blue.png',
                 },
                 items: [
                     {
                         type: 'docSidebar',
                         sidebarId: 'tutorialSidebar',
                         position: 'left',
-                        label: 'Tutorial',
+                        label: 'Tutorials',
                     },
-                    {to: '/blog', label: 'Blog', position: 'left'},
                     {
                         href: 'https://github.com/epimac/docs',
                         label: 'GitHub',

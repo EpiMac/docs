@@ -33,9 +33,9 @@ export default function HomepageTutorials() {
                 <h2>Most Popular Tutorials</h2>
 
                 <div className="row">
-                    {FeatureList.map((props, idx) => (
-                        <Feature key={idx} {...props} />
-                    ))}
+                    {/*{FeatureList.map((props, idx) => (*/}
+                    {/*    <Feature key={idx} {...props} />*/}
+                    {/*))}*/}
                 </div>
             </div>
         </section>
