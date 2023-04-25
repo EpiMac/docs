@@ -123,7 +123,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `Copyright © 1997-${new Date().getFullYear()} EpiMac. Built with Docusaurus.`,
+                copyright: `Copyright © 1999-${new Date().getFullYear()} EpiMac. Built with Docusaurus.`,
             },
             prism: {
                 theme: lightCodeTheme,
