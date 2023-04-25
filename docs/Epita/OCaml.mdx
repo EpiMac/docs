@@ -10,6 +10,142 @@ description: OCaml
 
 # Préparer son environnement de travail pour OCaml
 
+## Prérequis
+
+- [Homebrew](../../Tools/Homebrew)
+- ou [Nix](../../Tools/Nix)
+- Un IDE
+
+
 ## Installation de OCaml
 
-Pour installer OCaml,
+Pour installer OCaml, vous pouvez utiliser brew :
+
+```bash
+brew install opam
+```
+
+Ou Nix :
+
+```bash
+nix-env -iA nixpkgs.opam
+```
+
+## Initialisation de Opam
+
+Pour initialiser Opam, vous pouvez utiliser la commande suivante :
+```bash
+opam init
+eval $(opam env)
+```
+
+## Installation des packages supplémentaires
+
+Plusieurs packages sont nécessaires pour travailler avec OCaml. Voici une liste de paquets à installer :
+
+```bash
+opam install dune utop merlin ocp-indent ocaml-lsp-server tuareg
+```
+
+- utop : Un terminal interactif pour OCaml, pratique pour tester des fonctions rapidement.
+- merlin, ocp-indent, ocaml-lsp-server : Des outils pour pouvoir utiliser OCaml avec votre IDE favori (VSCode, Vim, Emacs, ...).
+- dune : Un outil pour compiler vos projets OCaml, nécessaire pour le projet d'AFIT
+- tuareg : Un mode pour Emacs pour l'édition de code OCaml
+
+En bonus, si vous aimez les tests unitaires, vous pouvez installer le package `alcotest` :
+
+```bash
+opam install alcotest
+```
+
+## Execution de OCaml
+
+C'est super simple, il suffit de lancer la commande `ocaml` dans votre terminal, ou `utop` si vous avez installé le package `utop` :
+
+```bash
+❯ ocaml
+        OCaml version 4.13.1
+# let x = 42;;
+val x : int = 42
+# x * 2;;
+- : int = 84
+```
+
+## Configuration de l'IDE
+
+Vous pouvez utiliser votre IDE favori pour travailler avec OCaml.
+L'IDE recommandé pour l'OCaml par Epita est [Emacs](../../Tools/Emacs), mais vous pouvez utiliser n'importe quel IDE qui supporte OCaml.
+
+
+### Emacs
+
+L'avantage du mode tuareg pour Emacs est que vous pouvez copier-coller le contenu d'un buffer dans une instance de `ocaml` directement depuis Emacs.
+
+Pour configurer Ocaml, utilisez le fichier `.emacs` suivant (qui se trouve dans
+votre dossier personnel `/Users/<votre nom>/.emacs` sur Mac).
+
+Si vous avez déjà un fichier `.emacs`, vous pouvez simplement ajouter les lignes à la fin de votre fichier.
+
+```emacs-lisp title=".emacs"
+(require 'package)
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+(package-initialize)
+
+; Suggest installing the tuareg mode if needed
+(unless (require 'tuareg nil 'noerror)
+  (if (y-or-n-p "Il manque le mode tuareg, appuyer sur 'y' pour l'installer automatiquement")
+    (progn
+      (package-refresh-contents)
+      (package-install 'tuareg))))
+; Suggest installing ocp-indent if needed
+(unless (require 'ocp-indent nil 'noerror)
+  (if (y-or-n-p "Il manque ocp-indent, appuyer sur 'y' pour l'installer automatiquement")
+    (progn
+      (package-refresh-contents)
+      (package-install 'ocp-indent))))
+```
+
+Lorsque vous ouvrez un fichier `.ml` ou `.mli`, Emacs devrait automatiquement utiliser le mode `tuareg`
+pour colorer le code, et ajouter un menu `Tuareg` dans la barre de menu.
+
+Les raccourcis clavier suivants sont disponibles :
+- `C-c C-e` : Execute la ligne courante
+- `C-c C-r` : Execute la région sélectionnée
+- `C-c C-k` : Tue le buffer courant
+
+
+### VSCode
+
+Nous vous recommandons d'utiliser l'extension [OCaml Platform](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform).
+
+Elle permet d'utiliser OCaml avec VSCode, et d'avoir un support complet pour les fichiers `.ml` et `.mli` (coloration syntaxique, autocomplétion, ...).
+
+
+## Gérer différentes versions d'OCaml
+
+Si vous avez besoin de gérer plusieurs environnements OCaml, vous pouvez utiliser `opam switch` pour créer des environnements virtuels.
+
+Par exemple, pour créer un environnement virtuel `ocaml-4.13.1` avec OCaml 4.13.1, vous pouvez utiliser la commande suivante :
+
+```bash
+opam switch create ocaml-4.13.1 4.13.1
+eval $(opam env)
+```
+
+Vous pourrez ensuite utiliser `opam switch` pour basculer entre les différents environnements virtuels.
+
+```bash
+❯ opam switch
+#   switch   compiler                    description
+->  4.13.1   ocaml-base-compiler.4.13.1  4.13.1
+    default  ocaml.4.14.0                default
+```
+
+:::info
+En changeant d'environnement virtuel, vous pouvez avoir besoin de réinstaller les packages supplémentaires que vous aviez installés au préalable.
+:::
+
+## Sources
+
+- [OCaml](https://ocaml.org/)
