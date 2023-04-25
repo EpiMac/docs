@@ -47,6 +47,7 @@ const config = {
                     // Remove this to remove the "edit this page" links.
                     // editUrl: 'https://github.com/epimac',
                 },
+                blog: false,
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
@@ -56,7 +57,7 @@ const config = {
 
     themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-        ({
+        {
             // Replace with your project's social card
             image: 'img/docusaurus-social-card.jpg',
             navbar: {
@@ -127,8 +128,9 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
+                additionalLanguages: ['csharp', 'yaml']
             },
-        }),
+        },
 };
 
 module.exports = config;
