@@ -1,26 +1,30 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
-const FeatureList = [
+
+const CardList = [
     {
-        title: 'Test test',
-        // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-        description: (
-            <>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum magnam, omnis perspiciatis
-                porro praesentium sequi sunt? Cupiditate porro, voluptas?
-            </>
-        ),
+        title: 'Apple Developer with EpiMac',
+        description: "Demandez votre accès au programme Apple Developer et commencez à développer vos applications pour iOS, iPadOS, macOS, watchOS et tvOS.",
+        link: '/docs/developer-account'
     }
 ];
 
-function Feature({Svg, title, description}) {
+function Card({link, title, description}) {
     return (
-        <div className={clsx('col col--4')}>
-            <div className="text--center padding-horiz--md">
-                <h3>{title}</h3>
-                <p>{description}</p>
+        <div className={clsx('col col--4 card-demo')}>
+            <div className="card">
+                <div className="card__header">
+                    <h3>{title}</h3>
+                </div>
+                <div className="card__body">
+                    <p>{description}</p>
+                </div>
+                <div className="card__footer">
+                    <Link to={link} className="button button--secondary button--block">Lien</Link>
+                </div>
             </div>
         </div>
     );
@@ -31,11 +35,10 @@ export default function HomepageTutorials() {
         <section className={styles.features}>
             <div className="container">
                 <h2>Most Popular Tutorials</h2>
-
                 <div className="row">
-                    {/*{FeatureList.map((props, idx) => (*/}
-                    {/*    <Feature key={idx} {...props} />*/}
-                    {/*))}*/}
+                    {CardList.map((props, idx) => (
+                        <Card key={idx} {...props} />
+                    ))}
                 </div>
             </div>
         </section>
