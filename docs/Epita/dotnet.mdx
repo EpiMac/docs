@@ -1,0 +1,112 @@
+---
+sidebar_position: 2
+id: dotnet
+title: C#/.NET
+tags:
+- Epita
+- MacOS
+- .NET
+- C#
+- Jetbrains
+
+description: C#/.NET sur MacOS avec Jetbrains Rider
+---
+
+# C#/.NET sur MacOS
+
+## Prérequis
+
+- [Homebrew](../../Tools/Homebrew)
+- ou [Nix](../../Tools/Nix)
+- Rider (ou Visual Studio, Rider est recommandé par l'école, car compatible avec Linux, et est accessible pendant les examens)
+
+## Introduction
+
+.NET est un framework développé par Microsoft, qui permet de développer des applications en C#.
+.NET est disponible sur MacOS, Linux et Windows.
+C'est le framework utilisé par l'école pour les cours de C# de première année à l'EPITA, encadrés par les assistants (ACDC).
+
+## Installation
+
+Pour installer .NET, plusieurs moyens s'offrent à vous.
+Vous pouvez installer Rider, qui vous proposera d'installer .NET au premier lancement, ou bien l'installer
+manuellement en ligne de commande. Commençons par installer Rider.
+
+### Rider
+
+Rider est un IDE développé par Jetbrains, qui est compatible avec .NET, C# et Mono.
+Il est disponible sur MacOS, Linux et Windows.
+
+Pour l'installer, il suffit de se rendre sur le site de [Jetbrains](https://www.jetbrains.com/rider/) et de télécharger la version pour MacOS.
+
+:::tip
+Vous pouvez également installer Rider en passant par la [ToolBox](https://www.jetbrains.com/toolbox-app/) de Jetbrains, qui vous permettra de gérer
+tous vos IDE Jetbrains depuis une seule application.
+:::
+
+:::tip
+Si vous êtes étudiant, vous pouvez obtenir une licence gratuite pour l'ensemble des IDE Jetbrains
+en vous connectant avec votre mail étudiant [ici](https://www.jetbrains.com/fr-fr/community/education/#students)/
+:::
+
+Lorsque vous lancez Rider pour la première fois, il vous proposera d'installer .NET, acceptez et laissez l'installation se faire.
+Attention, il vous proposera uniquement d'installer la dernière version de .NET, qui n'est pas forcément compatible avec
+les projets, ou celle demandée par les assistants. Pour installer une version spécifique, il faudra passer par la ligne de commande.
+
+### Ligne de commande
+
+#### Homebrew
+
+Pour installer .NET avec Homebrew, il suffit de lancer la commande suivante :
+
+```bash
+brew install dotnet # Installe la dernière version de .NET
+brew install dotnet@7 # Installe la version 7 de .NET
+```
+
+#### Nix
+
+Pour installer .NET avec Nix, il suffit de lancer la commande suivante :
+
+```bash
+nix-env -iA nixpkgs.dotnet-sdk_VERSION # Installe la version de .NET spécifiée,
+# changez VERSION par la version souhaitée (ex: 5)
+```
+Vous pouvez chercher sur [search.nixos.org](https://search.nixos.org/packages?channel=22.11&show=dotnet-sdk_7&from=0&size=50&sort=relevance&type=packages&query=dotnet)
+le nom exact du paquet à installer. Attention à bien prendre le
+paquet qui contient `dotnet-sdk` et non `dotnet-runtime`.
+
+### Manuellement
+
+Vous pouvez vous rendre sur le [site officiel de .NET](https://dotnet.microsoft.com/download/dotnet) pour télécharger
+la version souhaitée de .NET.
+
+## Utilisation
+
+### Créer un projet
+
+Pour créer un projet, cliquez sur `New Solution` dans la fenêtre d'accueil de Rider, puis choisissez `Console Application`.
+Attention à bien choisir `.NET/.NET Core` et pas `.NET Framework`.
+
+### Ajout de packages (NuGet)
+
+Dans la barre inférieure de Rider, vous pourrez voir un onglet `NuGet`, cliquez dessus pour ouvrir la fenêtre de gestion
+des packages NuGet. Vous pourrez alors rechercher le package souhaité et l'installer.
+
+Vous pouvez également ajouter un package NuGet en ajoutant la ligne suivante dans votre fichier `.csproj` :
+
+```xml
+<ItemGroup>
+    <PackageReference Include="PACKAGE_NAME" Version="VERSION" />
+</ItemGroup>
+```
+
+## Configuration de Rider
+
+N'hésitez pas à suivre le tutoriel [Jetbrains](../../Tools/Jetbrains) pour configurer Rider (et les autres IDE Jetbrains) correctement.
+
+
+## Sources
+
+-  [Site officiel de .NET](https://dotnet.microsoft.com/download/dotnet)
+-  [Site officiel de Rider](https://www.jetbrains.com/rider/)
