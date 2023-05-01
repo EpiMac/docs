@@ -1,9 +1,81 @@
 ---
 sidebar_position: 1
 title: Homebrew
-description: Homebrew is a package manager for macOS. It is the most popular package manager for macOS. It is used to install software that is not included with macOS by default.
+description: Homebrew est un gestionnaire de paquets pour macOS.
+tags:
+  - macOS
+  - Gestionnaire de paquets
 ---
 
 # Homebrew
 
-TODO
+[Homebrew](https://brew.sh/) est un gestionnaire de paquets pour macOS.
+Vous pouvez l'utiliser pour installer des logiciels depuis votre terminal.
+
+
+## Installation
+
+Pour installer Homebrew, exécutez la commande suivante dans votre terminal :
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+## Utilisation
+
+### Installer un paquet
+
+Pour installer un paquet (formula dans la terminologie Brew), exécutez la commande suivante dans votre terminal :
+
+```bash
+brew install <formula> [<formula> ...]
+```
+
+:::note
+Certains paquets sont des casks (applications graphiques). Pour les installer, utilisez la commande `brew install --cask <formula>`.
+Dans le doute, vous devriez chercher le paquet sur [le site de Homebrew](https://formulae.brew.sh/) ou via la commande `brew search <formula>`.
+:::
+
+:::note
+Quand vous installez un paquet, Homebrew fait aussi la mise à jour de tous les paquets déjà installés, ce qui peut prendre un certain temps !
+:::
+
+### Désinstaller un paquet
+
+```bash
+brew uninstall <formula> [<formula> ...]
+```
+
+### Mettre à jour un paquet
+
+Pour mettre à jour un paquet, exécutez la commande suivante dans votre terminal :
+
+```bash
+brew upgrade <formula> [<formula> ...]
+```
+
+## Installer des paquets Intel sur Apple Silicon
+
+Si vous utilisez un Mac avec une puce Apple Silicon (M1/M2), vous pouvez installer
+des paquets Intel grâce à Apple Rosetta 2.
+
+Pourquoi ? Parce que certains paquets ne sont pas encore disponibles en version native pour Apple Silicon.
+Vous pouvez regarder [cette liste](https://isapplesiliconready.com/) pour voir si vos paquets sont disponibles en version native.
+
+Si vous n'avez pas activé Rosetta 2, vous pouvez le faire en exécutant la commande suivante dans votre terminal :
+
+```bash
+softwareupdate --install-rosetta
+```
+
+Pour cela, exécutez la commande suivante dans votre terminal :
+
+```bash
+arch -x86_64 brew install <formula> [<formula> ...]
+```
+> `arch -x86_64` permet d'exécuter une commande en mode Intel.
+
+## Ressources
+
+- [Site officiel](https://brew.sh/)
+- [Intel Packages on Apple Silicon](https://www.wisdomgeek.com/development/installing-intel-based-packages-using-homebrew-on-the-m1-mac/)
