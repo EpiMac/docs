@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 title: Compte développeur
 description: Demande de compte développeur Apple auprès de l'association
 slug: /developer-account
@@ -7,7 +7,7 @@ slug: /developer-account
 
 # Compte développeur Apple
 
-Vous êtes étudiant du groupe IONIS et vous souhaitez développer et ou publier une application sur l'App Store ?
+Vous êtes étudiant du groupe IONIS et vous souhaitez développer et/ou publier une application sur l'App Store ?
 Vous êtes au bon endroit !
 
 Nous vous permettons d'obtenir un compte développeur Apple gratuitement, et ce, tant que vous êtes étudiant.
@@ -45,18 +45,102 @@ Vous recevrez un mail de confirmation une fois votre demande validée.
 Si vous avez des questions, n'hésitez pas à nous contacter sur [Discord](https://epimac.org/discord)
 ou par mail à [contact@epimac.org](mailto:contact@epimac.org).
 
+## Apple Store Connect
+
+Apple Store Connect est la plateforme de publication d'applications sur l'App Store.
+Vous pouvez y accéder à l'adresse suivante : [https://appstoreconnect.apple.com](https://appstoreconnect.apple.com)
+Si vous avez un quelconque problème, comme de permissions, n'hésitez pas à nous contacter sur [Discord](https://epimac.org/discord)
+
+Vous aurez par default la permission `Développeur` sur l'équipe EpiMac, ce qui vous permet de créer des applications, mais pas de les publier.
+Si vous avez besoin de plus de permissions (publier une app ou encore accéder aux données financières), contactez-nous sur notre [Discord](https://epimac.org/discord).
+
+### Créer une application
+
+Dans un premier temps, vous devez créer un bundle ID pour votre application.
+Un bundle ID est un identifiant unique pour votre application, il permet de l'identifier sur l'App Store, ainsi que
+pouvoir activer les fonctionnalités d'Apple (comme les notifications, NFC, WIFI, VPN, etc.).
+
+Par limitation technique, à ce jour, vous n'avez pas les droits pour les créer/modifier vous-même, c'est pourquoi nous vous
+demandons de nous contacter sur [Discord](https://epimac.org/discord),
+ou par mail à [contact@epimac.org](mailto:contact@epimac.org) pour que nous puissions le faire pour vous.
+Sauf sur demande contraire, nous vous créerons par défaut l'ID suivant: `org.epimac.[nom de votre application]`.
+
+Maintenant que vous avez un bundle ID, vous pouvez créer votre application.
+Pour la créer, suivez les étapes suivantes :
+- Dans la section `Apps`, cliquez sur le bouton `+` en haut à gauche
+- Sélectionnez `New App`
+- Choisissez le type d'application que vous souhaitez créer : IOS (inclus iPadOS et watchOS), tvOS ou macOS
+- Choisissez le bundle ID que vous avez créé précédemment
+- Entrez le nom de votre application, et choisissez la langue principale
+- Saisissez le SKU (`org.epimac.[nom de votre application]`)
+- Enfin, cochez `Limited Access` (pour que votre application ne soit pas éditable par d'autres développeurs hors staff EpiMac)
+
+
+### Ajouter des utilisateurs
+
+Vous pouvez ajouter des utilisateurs à votre application, pour qu'ils puissent vous aider à la développer,
+ou pour qu'ils puissent tester votre application avant sa publication.
+
+Pour ajouter un utilisateur, suivez les étapes suivantes :
+- Dans `App Information`, cliquez sur `Edit User Access`
+- Cochez `Limited Access` si ce n'est pas déjà fait (pour que votre application ne soit pas éditable par d'autres développeurs hors staff EpiMac)
+- Ajoutez les développeurs que vous souhaitez
+
+:::caution
+Pour pouvoir ajouter des développeurs à votre application, ils doivent également avoir un compte
+développeur Apple **EpiMac**.
+:::
+
+### Publication d'une application
+
+:::caution
+Comme dit précédemment, il vous faut la permission `App Manager` pour pouvoir publier une application.
+Si vous ne l'avez pas, contactez-nous sur [Discord](https://epimac.org/discord).
+:::
+
+Pour pouvoir publier une application sur l'App Store, elle a besoin d'être validée par Apple.
+Dans la page d'accueil de votre application, complétez la partie App Review Information. Vous devez y indiquer
+les informations suivantes :
+- Contact de la personne qui s'occupe de l'application (vous ou un autre développeur)
+- Potentielles notes ou pièces jointe pour les reviewers d'Apple
+- Si votre application a besoin de se connecter à un service externe, vous devez fournir des identifiants de test
+pour que les reviewers puissent tester votre application.
+
+:::caution
+Nous ne sommes en aucun cas responsables de la publication/refus de votre application sur l'App Store.
+:::
+
+Pensez également à compléter les autres sections de votre application, comme la description, les captures d'écran,
+les mots-clés, etc.
+
+
 ## Questions fréquentes
 
 #### Comment puis-je savoir si ma demande a été acceptée ?
 
 Vous recevrez un mail de confirmation une fois votre demande validée.
+Nous nous efforçons de valider les demandes dans les plus brefs délais.
 Si toutefois, vous n'avez pas reçu de mail, n'hésitez pas à nous contacter sur [Discord](https://epimac.org/discord)
 
 #### J'ai déjà un compte développeur Apple, puis-je le relier à l'association ?
 
 Non, il n'est pas possible de relier un compte développeur Apple existant à l'association.
 
-
-#### Combien de temps dure un compte développeur Apple EpiMac ?
+#### Combien de temps est valable un compte développeur Apple EpiMac ?
 
 Un compte développeur Apple EpiMac est valable tant que vous êtes étudiant du groupe IONIS.
+
+#### Pourquoi je suis automatiquement développeur sur `EpiMac Default App` ?
+
+Lorsque nous ajoutons un nouveau développeur sur l'Apple Developer Program, nous sommes obligés de lui attitrer une application,
+c'est pourquoi nous vous ajoutons à l'équipe de l'application `EpiMac Default App`.
+
+#### Je n'ai pas accès à l'App Store Connect, que faire ?
+
+Si vous n'avez pas accès à l'App Store Connect, c'est que votre demande n'a pas encore été validée.
+Si vous avez un quelconque problème, n'hésitez pas à nous contacter sur [Discord](https://epimac.org/discord)
+
+#### Je souhaite retirer mon compte développeur Apple EpiMac, comment faire ?
+
+Envoyez-nous un mail à [contact@epimac.org](mailto:contact@epimac.org) en précisant que vous souhaitez retirer votre compte développeur Apple EpiMac.
+Nous nous chargerons de retirer l'accès au compte
