@@ -8,6 +8,9 @@ tags:
 description: OCaml
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Préparer son environnement de travail pour OCaml
 
 ## Prérequis
@@ -19,17 +22,26 @@ description: OCaml
 
 ## Installation de OCaml
 
-Pour installer OCaml, vous pouvez utiliser brew :
+Pour installer OCaml, vous pouvez utiliser brew ou Nix :
+
+
+<Tabs>
+<TabItem value="bash" label="Brew">
 
 ```bash
 brew install opam
 ```
 
-Ou Nix :
+</TabItem>
+<TabItem value="nix" label="Nix">
 
 ```bash
 nix-env -iA nixpkgs.opam
 ```
+
+</TabItem>
+</Tabs>
+
 
 ## Initialisation de Opam
 
