@@ -12,6 +12,9 @@ tags:
 description: C#/.NET sur MacOS avec Jetbrains Rider
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # C#/.NET sur MacOS
 
 ## Prérequis
@@ -55,23 +58,28 @@ les projets, ou celle demandée par les assistants. Pour installer une version s
 
 ### Ligne de commande
 
-#### Homebrew
 
-Pour installer .NET avec Homebrew, il suffit de lancer la commande suivante :
+Pour installer .NET avec Homebrew ou Nix, il suffit de lancer la commande suivante :
+
+<Tabs>
+<TabItem value="brew" label="Brew">
 
 ```bash
 brew install dotnet # Installe la dernière version de .NET
 brew install dotnet@7 # Installe la version 7 de .NET
 ```
 
-#### Nix
-
-Pour installer .NET avec Nix, il suffit de lancer la commande suivante :
+</TabItem>
+<TabItem value="nix" label="Nix">
 
 ```bash
 nix-env -iA nixpkgs.dotnet-sdk_VERSION # Installe la version de .NET spécifiée,
 # changez VERSION par la version souhaitée (ex: 5)
 ```
+
+</TabItem>
+</Tabs>
+
 Vous pouvez chercher sur [search.nixos.org](https://search.nixos.org/packages?channel=22.11&show=dotnet-sdk_7&from=0&size=50&sort=relevance&type=packages&query=dotnet)
 le nom exact du paquet à installer. Attention à bien prendre le
 paquet qui contient `dotnet-sdk` et non `dotnet-runtime`.
