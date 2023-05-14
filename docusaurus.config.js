@@ -40,8 +40,6 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
-                    showLastUpdateAuthor: false,
-                    showLastUpdateTime: false,
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
@@ -64,7 +62,8 @@ const config = {
                 title: 'Epimac',
                 logo: {
                     alt: 'Epimac Logo',
-                    src: 'img/epimac_blue.png',
+                    src: 'img/epimac_black.png',
+                    srcDark: 'img/epimac_white.png',
                 },
                 items: [
                     {

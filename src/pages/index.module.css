@@ -4,20 +4,40 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    padding: 2em 2rem 0;
+    /*padding: 4rem 0;*/
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+    .heroBanner {
+        padding: 2rem;
+    }
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.heroBackground {
+    background: none;
+}
+
+.logo_banner {
+    background-size: cover;
+    background: url("/static/img/background.webp") no-repeat bottom;
+}
+
+.heroContainer {
+    /*    make the background grey */
+    background: var(--epimac-frontpage-background);
+    padding: 2rem;
+    border-radius: 10px;
+    color: var(--epimac-frontpage-text);
+
+}
+
