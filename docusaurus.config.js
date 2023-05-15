@@ -62,8 +62,8 @@ const config = {
                 title: 'Epimac',
                 logo: {
                     alt: 'Epimac Logo',
-                    src: 'img/epimac_black.png',
-                    srcDark: 'img/epimac_white.png',
+                    src: 'img/epimac_black.webp',
+                    srcDark: 'img/epimac_white.webp',
                 },
                 items: [
                     {
