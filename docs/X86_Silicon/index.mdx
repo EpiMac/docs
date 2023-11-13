@@ -4,43 +4,44 @@ title: x86_64 sur Apple Silicon
 tags:
   - VM
   - MacOS
+  - GDB
 ---
 
-### Comment avoir un WSL sur Mac Silicon ?
+#### Comment avoir un WSL sur Mac Silicon ?
 
 Cette documentation a pour but de vous apprendre à développer sur une architecture x86_64 avec votre Mac Silicon.
 
-### Prérequis
+## Prérequis
 
 - Un Mac Silicon,
 - Un minimum de 64 GB d'espace disque disponible.
 
-### Télécharger UTM
+## Télécharger UTM
 
 UTM vous permet de virtualiser et émuler n'importe qu'elle architecture sur un Mac Silicon.
 
-Télécharger la dernière version UTM :
-[https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg)
+Téléchargez la dernière version UTM :
+[Cliquez ici](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg)
 
-À savoir qu'il existe une version payante de UTM sur l'App Store identique à cette ci-dessus à l'expection des mise à jour automatique de l'application.
+À savoir qu'il existe une version payante de UTM sur l'App Store identique à cette ci-dessus à l'exception des mises à jour automatique de l'application.
 
-### Télécharger l'ISO d'un OS
+## Télécharger l'ISO d'un OS
 
-Pour cette documentation nous utiliserons l'image ISO d'un Ubuntu Server avec une architecture x86_64 similaire au architecture utilisée sur les machines de l'EPITA.
+Pour cette documentation, nous utiliserons l'image ISO d'un Ubuntu Server avec une architecture x86_64 similaire à l'architecture utilisée sur les machines de l'EPITA.
 
-[https://ubuntu.com/download/server](https://ubuntu.com/download/server)
+[Lien vers l'image ISO](https://ubuntu.com/download/server)
 
 *Prenez une version LTS pour vous assurez d'avoir une version stable.*
 
-### Créer une machine virtuelle émulée
+## Créer une machine virtuelle émulée
 
 Sur UTM, cliquez sur le bouton `Create a new Virtual Machine`. Ensuite `Emulate`, puis `Other`.
 
-Vous pouvez ensuite Ajouter (en cliquant sur `Browse`) votre chemin vers l'image ISO que vous venez de télécharger.
+Vous pouvez ensuite ajouter (en cliquant sur `Browse`) votre chemin vers l'image ISO que vous venez de télécharger.
 
 Cliquez sur `Continue`.
 
-### Configurer la machine virtuelle
+## Configurer la machine virtuelle
 
 - Vérifiez que vous avez bien sélectionné `x86_64` dans la liste déroulante `Architecture`.
 
@@ -48,39 +49,41 @@ Cliquez sur `Continue`.
 
 - Vous pouvez ensuite choisir la quantité de RAM que vous souhaitez allouer à votre machine virtuelle. 6144 MB et 6 coeurs est recommandée.
 
-<img src="/img/doc_X86/doc_X86_Settings.png" alt="Menu" width="400" style={{borderRadius: 5}} />
-
+<img src="/img/doc_X86/doc_X86_Settings.png" alt="Menu" width="400" style={{borderRadius: 5, boxShadow: '0 0 10px rgba(0,0,0,0.5)', display:"block", marginLeft: "auto", marginRight: "auto", marginTop: 30, marginBottom: 30}} />
 
 - Vous pourrez ensuite spécifier la taille allouée pour votre machine virtuelle. Séléctionnez 64GB.
 
 - Vous pouvez ignorer la partie `Shared Directory`.
 
-- Sur le sommaire, vous pouvez nommez la VM comme vous le souhaitez.
+- Sur le sommaire, vous pouvez nommer la VM comme vous le souhaitez.
 
-### Installation de la machine virtuelle
+## Installation de la machine virtuelle
 
-- Lancer votre machine virtuelle.
+- Lancez votre machine virtuelle.
+
+### Configuration basique de la VM 
 
 *Vous devriez voir une fenêtre s'ouvrir.*
+
 :::caution
 Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 :::
 
-- Prenez le premier choix de la liste affichée.
+- Prenez le premier choix de la liste.
 
-*Votre VM devrait s'installer avec des **`[ OK ]`** sur la gauche*
+*Votre VM devrait s'installer avec des check **`[ OK ]`** sur la gauche*
 
-*Vous devriez ensuite voir une fenêtre avec differentes langues*
+*Vous devriez ensuite voir une fenêtre avec différentes langues*
 
 - Choississez une langue.
 
-- Ensuite, si une mise à jour est disponible vous auriez le choix de l'installer.
+- Puis, si une mise à jour est disponible, vous pouvez l'installer si vous le souhaitez.
 
-- Ensuite, sélectionnez le bon clavier.
+- Ensuite, sélectionnez le bon layout pour votre clavier.
 
-- Ensuite, vous aurez la possiblité de selectionner le type d'installation. Choississez la premier option `Ubuntu Server`.
+- Vous aurez la possiblité de selectionner le type d'installation. Choississez la premier option `Ubuntu Server`.
 
-- Ensuite, vous serez sur l'interface Réseau. Votre réseau devrait être automatiquement selectionné. Faites suivant.
+- Vous êtes sur l'interface Réseau. Votre réseau devrait être automatiquement selectionné. Vous pouvez passer.
 
 - Faites encore suivant sur l'onglet `Proxy`.
 
@@ -88,11 +91,13 @@ Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 
 - Si vous n'avez pas d'erreur, faites suivant.
 
+### Configuration avancée de la VM 
+
 - Ensuite vous pourrez choisir les partitions de la VM. Faites `Use entire disk`. Vous devriez voir `local disk 64GB`.
 
 *Vous pouvez encrypter votre disque si vous le souhaitez.*
 
-- Faites encore suivant et `Continue` sur l'onglet `Storage Configuration`.
+- Faites suivant et `Continue` sur l'onglet `Storage Configuration`.
 
 - Vous pouvez désormais ajouter vos informations pour la VM.
 
@@ -102,13 +107,17 @@ Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 
 *Vous êtes ensuite sur l'onglet `SSH Setup`*.
 
-- Cliquer sur espace pour cocher l'installation de `SSH server`.
+- Pressez la touche espace pour cocher l'installation de `SSH server`.
 
 *Vous êtes sur l'onglet `Featured Server Snaps`*.
 
 - Cliquez sur suivant.
 
-*Vous deviez voir une fenêtre avec `Installing the system`. Le processus d'installation est un peu lent...*
+*Vous deviez voir une fenêtre avec `Installing the system`.*
+
+:::info
+Le processus d'installation est un peu lent...
+:::
 
 - Vous pouvez ensuite cliquer sur `Reboot Now`.
 
@@ -118,7 +127,7 @@ Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 
 ![Apercu VM](/img/doc_X86/doc_X86_VM.png)
 
-### Bonus : Développer avec VS Code vos projets en x86_64.
+## Bonus : Développer avec VS Code vos projets en x86_64.
 
 - Ajouter une clé SSH sur votre VM. (Vous pouvez utiliser le tutorial du CRI pour ajouter une clé SSH sur votre VM).
 
@@ -134,7 +143,7 @@ Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 
 ![Port Forward](/img/doc_X86/doc_X86_Clear.png)
 
-- Installer l'extension `Remote Explorer` sur VS Code: [https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
+- Installer l'extension `Remote Explorer` sur VS Code: [Cliquez ici](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
 
 - Vous verrez apparaitre `Remote Explorer` dans la bar de navigation. Cliquez dessus.
 
@@ -142,11 +151,15 @@ Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
 
 - Vous allez devoir entrer votre mot de passe pour vous connecter à votre VM.
 
-- Vous avez désormais accès au terminal de votre VM depuis VS Code et vous pouvez compiler vos projets avec une architecture x86_64.
+- Vous avez désormais accès au terminal de votre VM depuis VS Code et vous pouvez compiler vos projets avec une architecture x86_64 !
+
+:::tip
+Vous pouvez désormais utiliser gdb, et configurer votre terminal comme vous le souhaitez.
+:::
 
 
-Source:
-- [https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133](https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133)
+## Sources
+- [Article sur VS Code SSH Remote](https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133)
 
 
 Pour toute question vous pouvez me contacter sur Discord: `armandb`
