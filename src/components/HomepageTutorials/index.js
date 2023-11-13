@@ -13,7 +13,7 @@ const CardList = [
 
     {
         title: 'Asahi Linux : A linux for Silicon',
-        description: "Que vous soyez de simple curieux ou des connaisseurs avancées, venez découvrir le monde de Asahi Linux",
+        description: "Whether you're just curious or an advanced user, come and discover the wonderful world of Asahi Linux.",
         link: '/docs/asahi-linux'
     }
 ];
