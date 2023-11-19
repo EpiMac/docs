@@ -1,165 +1,165 @@
 ---
 sidebar_position: 2
-title: x86_64 sur Apple Silicon
+title: x86_64 on Apple Silicon
 tags:
   - VM
   - MacOS
   - GDB
 ---
 
-#### Comment avoir un WSL sur Mac Silicon ?
+#### How do I get a WSL on Mac Silicon?
 
-Cette documentation a pour but de vous apprendre à développer sur une architecture x86_64 avec votre Mac Silicon.
+This documentation aims to teach you how to develop on x86_64 architecture with your Silicon Mac.
 
-## Prérequis
+## Prerequisites
 
-- Un Mac Silicon,
-- Un minimum de 64 GB d'espace disque disponible.
+- A Silicon Mac,
+- A minimum of 64 GB free disk space.
 
-## Télécharger UTM
+## Download UTM
 
-UTM vous permet de virtualiser et émuler n'importe qu'elle architecture sur un Mac Silicon.
+UTM lets you virtualize and emulate any architecture on a Silicon Mac.
 
-Téléchargez la dernière version UTM :
+Download the latest UTM version:
 [Cliquez ici](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg)
 
-À savoir qu'il existe une version payante de UTM sur l'App Store identique à cette ci-dessus à l'exception des mises à jour automatique de l'application.
+Note that there is a paid version of UTM on the App Store, identical to the one above except for automatic application updates.
 
-## Télécharger l'ISO d'un OS
+## Download OS ISO
 
-Pour cette documentation, nous utiliserons l'image ISO d'un Ubuntu Server avec une architecture x86_64 similaire à l'architecture utilisée sur les machines de l'EPITA.
+For this documentation, we'll be using the ISO image of an Ubuntu Server with an x86_64 architecture similar to the one used on EPITA computers.
 
-[Lien vers l'image ISO](https://ubuntu.com/download/server)
+[Link to ISO image](https://ubuntu.com/download/server)
 
-*Prenez une version LTS pour vous assurez d'avoir une version stable.*
+*Take an LTS version to ensure you have a stable version.*
 
-## Créer une machine virtuelle émulée
+## Creating an emulated virtual machine
 
-Sur UTM, cliquez sur le bouton `Create a new Virtual Machine`. Ensuite `Emulate`, puis `Other`.
+On UTM, click on the `Create a new Virtual Machine` button. Then `Emulate`, then `Other`.
 
-Vous pouvez ensuite ajouter (en cliquant sur `Browse`) votre chemin vers l'image ISO que vous venez de télécharger.
+You can then add (by clicking on `Browse`) your path to the ISO image you've just downloaded.
 
-Cliquez sur `Continue`.
+Click on `Continue`.
 
-## Configurer la machine virtuelle
+## Setting up the virtual machine
 
-- Vérifiez que vous avez bien sélectionné `x86_64` dans la liste déroulante `Architecture`.
+- Check that you have selected `x86_64` in the `Architecture` drop-down list.
 
-- Laissez `System` sur le choix par défaut.
+- Leave `System` as the default.
 
-- Vous pouvez ensuite choisir la quantité de RAM que vous souhaitez allouer à votre machine virtuelle. 6144 MB et 6 coeurs est recommandée.
+- You can then choose the amount of RAM you wish to allocate to your virtual machine. 6144 MB and 6 cores is recommended.
 
 <img src="/img/doc_X86/doc_X86_Settings.png" alt="Menu" width="400" style={{borderRadius: 5, boxShadow: '0 0 10px rgba(0,0,0,0.5)', display:"block", marginLeft: "auto", marginRight: "auto", marginTop: 30, marginBottom: 30}} />
 
-- Vous pourrez ensuite spécifier la taille allouée pour votre machine virtuelle. Séléctionnez 64GB.
+- You can then specify the size allocated for your virtual machine. Select 64GB.
 
-- Vous pouvez ignorer la partie `Shared Directory`.
+- You can ignore the Shared Directory section.
 
-- Sur le sommaire, vous pouvez nommer la VM comme vous le souhaitez.
+- On the summary, you can name the VM as you wish.
 
-## Installation de la machine virtuelle
+## Virtual machine installation
 
-- Lancez votre machine virtuelle.
+- Launch your virtual machine.
 
-### Configuration basique de la VM 
+### Basic VM configuration
 
-*Vous devriez voir une fenêtre s'ouvrir.*
+*You should see a window open.*
 
-:::caution
-Utilisez la touche TAB, Espace et Enter pour naviguer dans le menu.
+:::caution Caution
+Use the TAB, Space and Enter keys to navigate the menu.
 :::
 
-- Prenez le premier choix de la liste.
+- Take the first choice from the list.
 
-*Votre VM devrait s'installer avec des check **`[ OK ]`** sur la gauche*
+*Your VM should install with check **`[ OK ]`** on the left*.
 
-*Vous devriez ensuite voir une fenêtre avec différentes langues*
+*You should then see a window with different languages*.
 
-- Choississez une langue.
+- Choose a language.
 
-- Puis, si une mise à jour est disponible, vous pouvez l'installer si vous le souhaitez.
+- Then, if an update is available, you can install it if you wish.
 
-- Ensuite, sélectionnez le bon layout pour votre clavier.
+- Next, select the right layout for your keyboard.
 
-- Vous aurez la possiblité de selectionner le type d'installation. Choississez la premier option `Ubuntu Server`.
+- You'll be able to select the type of installation. Choose the first option `Ubuntu Server`.
 
-- Vous êtes sur l'interface Réseau. Votre réseau devrait être automatiquement selectionné. Vous pouvez passer.
+- You're now on the Network interface. Your network should be automatically selected. You can proceed.
 
-- Faites encore suivant sur l'onglet `Proxy`.
+- Select next on the `Proxy` tab.
 
-*Vous êtes désormais sur `Ubuntu Archive Mirror`. Attendez qu'il détecte les archives*
+*You are now on `Ubuntu Archive Mirror`. Wait for it to detect the archives*.
 
-- Si vous n'avez pas d'erreur, faites suivant.
+- If you get no error, do next.
 
-### Configuration avancée de la VM 
+### Advanced VM configuration
 
-- Ensuite vous pourrez choisir les partitions de la VM. Faites `Use entire disk`. Vous devriez voir `local disk 64GB`.
+- Then you can choose the VM partitions. Do `Use entire disk`. You should see `local disk 64GB`.
 
-*Vous pouvez encrypter votre disque si vous le souhaitez.*
+*You can encrypt your disk if you wish.*
 
-- Faites suivant et `Continue` sur l'onglet `Storage Configuration`.
+- Do next and `Continue` on the `Storage Configuration` tab.
 
-- Vous pouvez désormais ajouter vos informations pour la VM.
+- You can now add your VM information.
 
 ![Menu](/img/doc_X86/doc_X86_Menu.png)
 
-- Cliquez sur suivant pour l'onglet `Ubuntu Pro`.
+- Click on next for the `Ubuntu Pro` tab.
 
-*Vous êtes ensuite sur l'onglet `SSH Setup`*.
+*You're now on the `SSH Setup` tab*.
 
-- Pressez la touche espace pour cocher l'installation de `SSH server`.
+- Press space to check `SSH server` installation.
 
-*Vous êtes sur l'onglet `Featured Server Snaps`*.
+*You are now on the `Featured Server Snaps`* tab.
 
-- Cliquez sur suivant.
+- Click next.
 
-*Vous deviez voir une fenêtre avec `Installing the system`.*
+*You should see a window with `Installing the system`.*
 
 :::info
-Le processus d'installation est un peu lent...
+The installation process is a bit slow...
 :::
 
-- Vous pouvez ensuite cliquer sur `Reboot Now`.
+- You can then click on `Reboot Now`.
 
-- Lorsque vous verrez un message d'error `Unable to unmount`, stopper votre VM. Puis, allez sur l'interface UTM et cliquer sur CD/DVD. Ensuite, cliquez sur `Clear`.
+- When you see the error message `Unable to unmount`, stop your VM. Then go to the UTM interface and click on CD/DVD. Then click on `Clear`.
 
-- Vous pouvez relancer votre VM et vous connecter sur votre nouvelle VM.
+- You can restart your VM and connect to your new VM.
 
-![Apercu VM](/img/doc_X86/doc_X86_VM.png)
+![VM preview](/img/doc_X86/doc_X86_VM.png)
 
-## Bonus : Développer avec VS Code vos projets en x86_64.
+## Bonus: Develop on x86_64 your projects with VS Code.
 
-- Ajouter une clé SSH sur votre VM. (Vous pouvez utiliser le tutorial du CRI pour ajouter une clé SSH sur votre VM).
+- Add an SSH key to your VM. (You can use the CRI tutorial to add an SSH key to your VM).
 
-- Stopper votre VM.
+- Stop your VM.
 
-- Sur UTM, cliquez sur `Edit` puis `Network`.
+- On UTM, click on `Edit` then `Network`.
 
-- Changer le champ `Network Mode` en `Emulated VLAN`.
+- Change the `Network Mode` field to `Emulated VLAN`.
 
-- Vous verrez apparaitre `Port Forward` dans la bar de navigation. Cliquez dessus.
+- You'll see `Port Forward` in the navigation bar. Click on it.
 
-- Rentrez les informations suivantes :
+- Enter the following information:
 
 ![Port Forward](/img/doc_X86/doc_X86_Clear.png)
 
-- Installer l'extension `Remote Explorer` sur VS Code: [Cliquez ici](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
+- Install the `Remote Explorer` extension on VS Code: [Click here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
 
-- Vous verrez apparaitre `Remote Explorer` dans la bar de navigation. Cliquez dessus.
+- You'll see `Remote Explorer` in the navigation bar. Click on it.
 
-- Ajouter une nouvelle connexion SSH avec comme champ `ssh <username>@127.0.0.1 -p 2200`. Remplacez `<username>` par le champ `server's name` entrée au menu.
+- Add a new SSH connection with field `ssh <username>@127.0.0.1 -p 2200`. Replace `<username>` with the `server's name` field entered in the menu.
 
-- Vous allez devoir entrer votre mot de passe pour vous connecter à votre VM.
+- You'll need to enter your password to connect to your VM.
 
-- Vous avez désormais accès au terminal de votre VM depuis VS Code et vous pouvez compiler vos projets avec une architecture x86_64 !
+- You now have access to your VM's terminal from VS Code and can compile your projects with an x86_64 architecture!
 
-:::tip
-Vous pouvez désormais utiliser gdb, et configurer votre terminal comme vous le souhaitez.
+:::tip Tip
+You can now use gdb, and all the tools that are not usually available on a Silicon computer.
 :::
 
 
 ## Sources
-- [Article sur VS Code SSH Remote](https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133)
+- [Article on VS Code SSH Remote](https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133)
 
 
-Pour toute question vous pouvez me contacter sur Discord: `armandb`
+For any question you can contact me on Discord: `armandb`.
