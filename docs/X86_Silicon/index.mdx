@@ -4,34 +4,37 @@ title: x86_64 on Apple Silicon
 tags:
   - VM
   - MacOS
-  - GDB
+  - Mac Silicon
 ---
 
-#### How do I get a WSL on Mac Silicon?
+import Settings from "./img/doc_X86_Settings.png";
+import Menu from "./img/doc_X86_Menu.png";
 
-This documentation aims to teach you how to develop on x86_64 architecture with your Silicon Mac.
+This tutorial will show you how to create a virtual machine on your Mac Silicon, and how to connect to it with VS Code. After completing the tutorial, you will be able to compile your code with a x86_64 architecture on your Mac.
 
 ## Prerequisites
 
-- A Silicon Mac,
-- A minimum of 64 GB free disk space.
+- A Silicon Mac (M1/M2/M3)
+- A minimum of 64 GB free disk space
 
 ## Download UTM
 
 UTM lets you virtualize and emulate any architecture on a Silicon Mac.
 
 Download the latest UTM version:
-[Cliquez ici](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg)
+[Download here](https://github.com/utmapp/UTM/releases/)
 
 Note that there is a paid version of UTM on the App Store, identical to the one above except for automatic application updates.
 
-## Download OS ISO
+## Download a linux distribution for our VM
 
-For this documentation, we'll be using the ISO image of an Ubuntu Server with an x86_64 architecture similar to the one used on EPITA computers.
+For this tutorial, we'll be using an Ubuntu Server image, on x86_64 architecture which is similar to the one used on EPITA computers. You can find the ISO image [here](https://ubuntu.com/download/server).
 
-[Link to ISO image](https://ubuntu.com/download/server)
+:::note
 
-*Take an LTS version to ensure you have a stable version.*
+You can choose the distribution you want, as long as you take a x86_64 architecture
+
+:::
 
 ## Creating an emulated virtual machine
 
@@ -49,7 +52,23 @@ Click on `Continue`.
 
 - You can then choose the amount of RAM you wish to allocate to your virtual machine. 6144 MB and 6 cores is recommended.
 
-<img src="/img/doc_X86/doc_X86_Settings.png" alt="Menu" width="400" style={{borderRadius: 5, boxShadow: '0 0 10px rgba(0,0,0,0.5)', display:"block", marginLeft: "auto", marginRight: "auto", marginTop: 30, marginBottom: 30}} />
+<div style={{
+  boxShadow: '0 0 10px rgba(0,0,0,0.7)',
+  borderRadius: '16px',
+  width: '50%',
+  margin: 'auto',
+  marginBottom: '20px',
+  marginTop: '20px'
+}}>
+  <img
+    src={Settings}
+    style={{
+      width: '100%',
+      borderRadius: '16px',
+      marginBottom: '-10px',
+    }}
+  />
+</div>
 
 - You can then specify the size allocated for your virtual machine. Select 64GB.
 
@@ -65,8 +84,10 @@ Click on `Continue`.
 
 *You should see a window open.*
 
-:::caution Caution
-Use the TAB, Space and Enter keys to navigate the menu.
+:::tip
+
+Use the TAB, Space and Enter keys to navigate the menu
+
 :::
 
 - Take the first choice from the list.
@@ -101,7 +122,10 @@ Use the TAB, Space and Enter keys to navigate the menu.
 
 - You can now add your VM information.
 
-![Menu](/img/doc_X86/doc_X86_Menu.png)
+<div id="menu">
+  <img src={Menu} />
+</div>
+
 
 - Click on next for the `Ubuntu Pro` tab.
 
@@ -125,11 +149,11 @@ The installation process is a bit slow...
 
 - You can restart your VM and connect to your new VM.
 
-![VM preview](/img/doc_X86/doc_X86_VM.png)
+![VM preview](img/doc_X86_VM.png)
 
-## Bonus: Develop on x86_64 your projects with VS Code.
+## Connect VS Code to your VM
 
-- Add an SSH key to your VM. (You can use the CRI tutorial to add an SSH key to your VM).
+- Add an SSH key to your VM.
 
 - Stop your VM.
 
@@ -141,22 +165,17 @@ The installation process is a bit slow...
 
 - Enter the following information:
 
-![Port Forward](/img/doc_X86/doc_X86_Clear.png)
+![Port Forward](img/doc_X86_Clear.png)
 
 - Install the `Remote Explorer` extension on VS Code: [Click here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
 
 - You'll see `Remote Explorer` in the navigation bar. Click on it.
 
-- Add a new SSH connection with field `ssh <username>@127.0.0.1 -p 2200`. Replace `<username>` with the `server's name` field entered in the menu.
+- Add a new SSH connection with field `ssh <username>@127.0.0.1 -p 2200`. Replace `<username>` with the `server's name` field entered in the menu (<a href="#menu">here</a>).
 
 - You'll need to enter your password to connect to your VM.
 
 - You now have access to your VM's terminal from VS Code and can compile your projects with an x86_64 architecture!
-
-:::tip Tip
-You can now use gdb, and all the tools that are not usually available on a Silicon computer.
-:::
-
 
 ## Sources
 - [Article on VS Code SSH Remote](https://medium.com/@lizrice/linux-vms-on-an-m1-based-mac-with-vscode-and-utm-d73e7cb06133)
