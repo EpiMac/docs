@@ -1,0 +1,122 @@
+---
+title: A bit of history
+id: asahi-history
+sidebar_position: 3
+description: Asahi Linux history
+keywords:
+  - Asahi
+  - MacOS
+---
+## What is Asahi Linux ?
+
+Asahi Linux is a community-driven project with an ambitious goal: to enable the Linux operating system to function seamlessly on Apple's ARM-based hardware, including the latest Macs powered by Apple Silicon.
+
+This project not only opens up new possibilities for macOS users but also
+plays a significant role in the broader world of open-source software development. By becoming part of the Asahi Linux community, you can actively contribute to this endeavor and help shape the future of computing.
+
+## Who's behind that project ?
+
+The Asahi Linux project is led by a group of 6 persons:
+
+**1. Hector Martin - Asahi Project Lead:**
+
+Hector Martin, widely known as "marcan," spearheads the Asahi project. With over 15 years of experience in reverse engineering and development, he specializes in porting Linux to undocumented or closed devices.
+This ambitious project, funded through community donations and sponsorship, marks the pinnacle of his endeavors. Notable past projects include PS4 Linux, AsbestOS (a PS3 Linux bootloader), and significant contributions to the Wii Homebrew ecosystem.
+
+**2. Alyssa Rosenzweig - Asahi GPU Lead:**
+
+Alyssa Rosenzweig, the Asahi GPU Lead, is a distinguished Linux graphics hacker renowned for her work on reverse-engineering Arm Mali GPUs, contributing to the Panfrost driver. As an upstream Mesa3D developer, she maintains both the Panfrost and Asahi Mesa drivers.
+
+**3. Asahi Lina - GPU Kernel Sourceress:**
+
+Asahi Lina, the GPU Kernel Sourceress, joined the Asahi team to reverse engineer the M1 GPU kernel interface. She achieved a milestone by creating the world's first Rust Linux GPU kernel driver. Alongside her work on the Asahi DRM kernel driver, Lina engages in open-source VTuber tooling and infrastructure development.
+
+**4. Dougall Johnson - Instruction Set Architecture Extraordinaire:**
+
+Dougall Johnson, aka "dougallj," is an instruction set architecture
+extraordinaire. His expertise lies in reverse-engineering the Apple GPU's instruction set and analyzing the timing of the Apple M1's CPU cores to infer micro-architectural details.
+
+**5. Sven Peter - Linux Support Maverick:**
+
+Sven Peter tirelessly contributes to upstream Linux support for Apple's Device Address Resolution Table (DART), crucial for USB, PCIe, Ethernet, and Wi-Fi. His work extends to adding USB gadget support to m1n1 and ongoing efforts in DisplayPort and Thunderbolt support.
+
+**6. Mark Kettenis - OpenBSD Developer:**
+
+Mark Kettenis, an OpenBSD developer, has played a pivotal role in the Asahi project by writing m1n1 and U-Boot drivers for Apple M1 core peripherals. His contributions include essential bring-up work for PCIe and NVMe (ANS) and OpenBSD drivers for the Apple M1.
+
+**7. Martin Povišer - Audio Kernel Driver Lead:**
+
+Leading the audio kernel driver effort, Martin Povišer writes and upstreams Apple-specific SoC audio drivers. His work extends to drivers for Apple-proprietary codecs and codec variants.
+
+**8. Janne Grunau - Touchpad/Keyboard and Display Controller Maven:**
+
+Janne Grunau, a multifaceted contributor, implemented touchpad/keyboard support for the M1 series and now maintains the display controller (DCP) driver. His involvement spans various facets, including device tree cleanup and submission.
+
+## A Journey Through Innovation
+### 2020: The Advent of Asahi Linux
+- **June 2020 - Apple's Groundbreaking Announcement:**
+
+At the WWDC, Apple unveiled its ambitious plan to transition its entire Mac line from Intel's x86-64 architecture to its custom-designed Apple Silicon, starting with the M1 chip. This bold move by Apple sparked widespread curiosity and excitement, particularly within the Linux community, as it presented a unique challenge: bringing Linux to these new, uncharted ARM-based processors.
+
+- **Late 2020 - The Genesis of Asahi Linux:**
+
+Hector Martin, a seasoned developer renowned for his expertise in porting Linux to a variety of platforms, announced the inception of Asahi Linux. His vision was clear and ambitious: to create a fully-functional Linux distribution, specifically Arch Linux, for Apple Silicon Macs, beginning with the M1. This project wasn't just about making Linux run on new hardware; it was about pushing the boundaries of open-source software and expanding its reach.
+
+### 2021: Pioneering Development and Key Breakthroughs
+- **Early 2021 - Gathering Steam:**
+
+The initial months of 2021 were a period of intense groundwork. The Asahi team embarked on the daunting task of unraveling the intricacies of the M1 hardware. This phase was crucial, involving reverse engineering and the creation of rudimentary drivers. The project quickly gained momentum, drawing in a diverse group of contributors from the global open-source community, each bringing their unique skills and perspectives.
+
+- **Mid-2021 - The First Successful Boot:**
+
+Mid-2021 marked a significant milestone for Asahi Linux with the first successful boot of the Linux kernel on an M1 Mac. This early version, albeit basic and lacking many hardware features like GPU acceleration, was a testament to the team's technical prowess and a beacon of possibility for the entire project.
+
+During this period, Asahi Linux began attracting attention from various Linux distributions interested in Apple Silicon, including Fedora. Fedora, known for its cutting-edge features and robust community, saw a natural alignment with Asahi Linux's goals. This marked the beginning of a partnership where Asahi Linux could benefit from Fedora's infrastructure and experience in Linux distribution.
+
+- **Late 2021 - Enhancing Hardware Compatibility:**
+
+The latter part of 2021 saw the Asahi team making strides in hardware support. This phase included the implementation of basic USB and networking capabilities, laying the groundwork for more advanced functionalities. The team's efforts now pivoted towards more complex challenges, such as GPU integration and efficient power management, both critical for a fully functional Linux experience on Apple hardware.
+
+### 2022: Broadening Scope and Deepening Integration
+- **Early 2022 - Graphics and User Interface Developments:**
+
+As 2022 dawned, Asahi Linux began to take a more recognizable shape. The team managed to bring up a graphical user interface, an essential step towards a user-friendly Linux experience on the M1. Though initially limited to basic frame buffer support, it laid the foundation for future advancements in GPU support.
+
+- **Mid-2022 - Achieving Wireless Connectivity:**
+
+Wireless connectivity, a non-negotiable feature in modern computing, particularly for laptop users, was a significant focus mid-year. The Asahi team successfully enabled preliminary Wi-Fi support. Though in its early stages and not without its quirks, this development was a crucial step in making Asahi Linux a viable alternative for everyday users.
+
+The collaboration with Fedora became more structured. Fedora provided
+valuable resources and expertise that helped streamline Asahi Linux's development. This partnership was instrumental in tackling complex issues like GPU support and system optimization, leveraging Fedora's vast experience in these areas.
+
+- **Late 2022 - Strengthening Community and Mainstream Integration:**
+
+The latter part of 2022 was characterized by increased collaboration with the wider Linux community. Asahi Linux's contributions to the Linux kernel were not just about improving their distribution; they were about enriching the Linux ecosystem as a whole. This period marked the project's transition from a niche endeavor to a more integrated and influential player in the Linux world.
+
+### 2023: Refining the Experience and Expanding Horizons
+- **Early 2023 - Focus on Performance and Stability:**
+
+The focus in early 2023 was on optimizing performance and enhancing stability, crucial factors in making Asahi Linux a practical choice for a broader audience. Efforts to improve power management and battery life also gained momentum, addressing one of the critical aspects of mobile computing.
+
+- **Mid-2023 - Catering to Newer Apple Silicon:**
+
+As Apple continued to innovate and release new iterations of its Silicon, Asahi Linux expanded its scope to include these newer chips, such as the M1 Pro and M1 Max. Adapting to these new processors required a flexible and forward-thinking approach, ensuring the longevity and relevance of Asahi Linux.
+
+By that time, the partnership with Fedora played a crucial role in expanding Asahi Linux's capabilities. Fedora's involvement not only helped in refining the distribution for better performance and stability but also provided a testing ground for Asahi Linux's adaptability with newer hardware. This symbiotic relationship significantly accelerated the development of a polished and versatile Linux experience on Apple Silicon.
+
+- **Late 2023 - Usability and Community Expansion:**
+
+By the end of 2023, Asahi Linux had made significant strides in user-friendliness, a move aimed at attracting a wider user base beyond just developers and tech enthusiasts. The community around Asahi Linux saw robust growth, with an increasing number of users participating in testing, documentation, and further development of the project.
+
+Fedora's contribution to Asahi Linux also extended to the community aspects. Fedora's well-established community infrastructure provided a platform for Asahi Linux to engage with a broader audience, facilitating contributions, feedback, and testing. This community integration was pivotal in refining the user experience, making Asahi Linux more accessible to a wider range of users.
+
+### Conclusion: A Journey of Innovation and Collaboration
+The story of Asahi Linux is more than a technical endeavor; it's a narrative of innovation, collaboration, and the relentless pursuit of expanding the horizons of open-source software.
+This journey, marked by challenges and triumphs, illustrates the power of a community united by a shared vision, working together to bring the flexibility and freedom of Linux to the cutting-edge Apple Silicon.
+As Asahi Linux continues to evolve, it stands as a beacon of what can be achieved when passion meets perseverance in the world of technology.
+
+#### For more information :
+- [Asahi Official Information page](https://asahilinux.org/about/)
+- [Asahi Official Blog page](https://asahilinux.org/blog/)
+- [Asahi Official Fedora Blog page](https://discussion.fedoraproject.org/c/neighbors/asahi/92)
+- [Asahi Official Mastodon page](https://social.treehouse.systems/@AsahiLinux)
