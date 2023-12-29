@@ -12,7 +12,7 @@ const CardList = [
     },
 
     {
-        title: 'Asahi Linux : A linux for Silicon',
+        title: 'Asahi Linux : A linux distribution for Apple Silicon',
         description: "Whether you're just curious or an advanced user, come and discover the wonderful world of Asahi Linux.",
         link: '/docs/Asahi/asahi-linux'
     }
