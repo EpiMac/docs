@@ -45,7 +45,13 @@ const config = {
                     // Remove this to remove the "edit this page" links.
                     // editUrl: 'https://github.com/epimac',
                 },
-                blog: false,
+                blog: {
+                    blogTitle: 'Epimac Blog',
+                    blogDescription: 'All the news about Epimac and its projects',
+                    postsPerPage: 'ALL',
+                    blogSidebarTitle: 'All posts',
+                    blogSidebarCount: 'ALL',
+                },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
@@ -71,6 +77,11 @@ const config = {
                         sidebarId: 'tutorialSidebar',
                         position: 'left',
                         label: 'Tutorials',
+                    },
+                    {
+                        to: 'blog',
+                        label: 'Blog',
+                        position: 'left'
                     },
                     // NOT ACTIVE FOR THE MOMENT
                     // {
@@ -132,7 +143,7 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ['csharp', 'yaml', 'lisp', 'bash', 'json' ],
+                additionalLanguages: ['csharp', 'yaml', 'lisp', 'bash', 'json'],
             },
         },
 };
