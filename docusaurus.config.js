@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.dracula;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -62,8 +62,8 @@ const config = {
                 title: 'Epimac',
                 logo: {
                     alt: 'Epimac Logo',
-                    src: 'img/epimac_black.webp',
-                    srcDark: 'img/epimac_white.webp',
+                    src: 'img/logo_color.webp',
+                    srcDark: 'img/logo_white.webp',
                 },
                 items: [
                     {
@@ -86,7 +86,7 @@ const config = {
                         title: 'Documentation',
                         items: [
                             {
-                                label: 'Tutorial',
+                                label: 'Tutorials',
                                 to: '/docs/intro',
                             }
                         ],
@@ -127,7 +127,7 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ['csharp', 'yaml', 'lisp' ]
+                additionalLanguages: ['csharp', 'yaml', 'lisp', 'bash', 'json' ],
             },
         },
 };

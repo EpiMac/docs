@@ -29,7 +29,7 @@
 
 .logo_banner {
     background-size: cover;
-    background: url("/static/img/background.webp") no-repeat bottom;
+    background: #140e59;
 }
 
 .heroContainer {
