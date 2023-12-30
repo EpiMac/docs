@@ -7,8 +7,8 @@ WORKDIR /home/node/app
 
 COPY --chown=node:node . .
 
-RUN npm ci
 USER node
+RUN npm ci
 RUN npm run build
 
 FROM nginx:stable-alpine as deploy
