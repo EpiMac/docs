@@ -20,7 +20,7 @@ const CardList = [
 
 function Card({link, title, description}) {
     return (
-        <div className={clsx('col col--4 card-demo')}>
+        <div className={clsx('col col--4 card-demo margin-bottom--sm')}>
             <div className="card">
                 <div className="card__header">
                     <h3>{title}</h3>
