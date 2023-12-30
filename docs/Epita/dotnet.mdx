@@ -8,99 +8,91 @@ tags:
 - .NET
 - C#
 - Jetbrains
-description: C#/.NET sur MacOS avec Jetbrains Rider
+description: C#/.NET on MacOS with Jetbrains Rider
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# C#/.NET sur MacOS
+# C#/.NET on MacOS
 
-## Prérequis
+## Prerequisites
 
 - [Homebrew](../../Tools/Homebrew)
-- ou [Nix](../../Tools/Nix)
-- Rider (ou Visual Studio, Rider est recommandé par l'école, car compatible avec Linux, et est accessible pendant les examens)
+- or [Nix](../../Tools/Nix)
+- Rider (or Visual Studio, Rider is recommended by the school, because it is compatible with Linux, and is accessible during exams)
 
 ## Introduction
 
-.NET est un framework développé par Microsoft, qui permet de développer des applications en C#.
-.NET est disponible sur MacOS, Linux et Windows.
-C'est le framework utilisé par l'école pour les cours de C# de première année à l'EPITA, encadrés par les assistants (ACDC).
+.NET is a framework developed by Microsoft, which allows the development of applications in C#. .NET is available on MacOS, Linux, and Windows.
+It is the framework used by the school for the first year C# courses at EPITA, supervised by the assistants (ACDC).
+
 
 ## Installation
 
-Pour installer .NET, plusieurs moyens s'offrent à vous.
-Vous pouvez installer Rider, qui vous proposera d'installer .NET au premier lancement, ou bien l'installer
-manuellement en ligne de commande. Commençons par installer Rider.
+To install .NET, you have several options.
+You can install Rider, which will propose to install .NET during the first launch, or install it manually using the command line.
+Let's start by installing Rider.
 
 ### Rider
-
-Rider est un IDE développé par Jetbrains, qui est compatible avec .NET, C# et Mono.
-Il est disponible sur MacOS, Linux et Windows.
-
-Pour l'installer, il suffit de se rendre sur le site de [Jetbrains](https://www.jetbrains.com/rider/) et de télécharger la version pour MacOS.
-
+Rider is an IDE developed by JetBrains, which is compatible with .NET, C#, and Mono. It is available on MacOS, Linux, and Windows.
+To install it, simply go to the JetBrains website and download the macOS version.
 :::tip
-Vous pouvez également installer Rider en passant par la [ToolBox](https://www.jetbrains.com/toolbox-app/) de Jetbrains, qui vous permettra de gérer
-tous vos IDE Jetbrains depuis une seule application.
+You can also install Rider through the JetBrains ToolBox, which will allow you to manage all of your JetBrains IDEs from a single application.
 :::
 
 :::tip
-Si vous êtes étudiant, vous pouvez obtenir une licence gratuite pour l'ensemble des IDE Jetbrains
-en vous connectant avec votre mail étudiant [ici](https://www.jetbrains.com/fr-fr/community/education/#students)/
+If you are a student, you can obtain a free license for all of JetBrains IDEs by logging in with your student email here.
 :::
+When you launch Rider for the first time, it will offer to install .NET.
+Accept this and allow the installation to proceed.
+Take note, it will only offer to install the latest version of .NET, which might not be compatible with certain projects or what the teaching assistants ask for.
+To install a specific version, you will need to use the command line.
 
-Lorsque vous lancez Rider pour la première fois, il vous proposera d'installer .NET, acceptez et laissez l'installation se faire.
-Attention, il vous proposera uniquement d'installer la dernière version de .NET, qui n'est pas forcément compatible avec
-les projets, ou celle demandée par les assistants. Pour installer une version spécifique, il faudra passer par la ligne de commande.
+### Command line
 
-### Ligne de commande
-
-
-Pour installer .NET avec Homebrew ou Nix, il suffit de lancer la commande suivante :
+To install .NET with Homebrew or Nix, simply run the following command:
 
 <Tabs>
-<TabItem value="brew" label="Brew">
+    <TabItem value="brew" label="Brew">
 
-```bash
-brew install dotnet # Installe la dernière version de .NET
-brew install dotnet@7 # Installe la version 7 de .NET
-```
+        ```bash
+        brew install dotnet # Installe la dernière version de .NET
+        brew install dotnet@7 # Installe la version 7 de .NET
+        ```
 
-</TabItem>
-<TabItem value="nix" label="Nix">
+    </TabItem>
+    <TabItem value="nix" label="Nix">
 
-```bash
-nix-env -iA nixpkgs.dotnet-sdk_VERSION # Installe la version de .NET spécifiée,
-# changez VERSION par la version souhaitée (ex: 5)
-```
+        ```bash
+        nix-env -iA nixpkgs.dotnet-sdk_VERSION # Install a specific version of .NET
+        # change VERSION with the version you want to install (eg: 5.)
+        ```
 
-</TabItem>
+    </TabItem>
 </Tabs>
 
-Vous pouvez chercher sur [search.nixos.org](https://search.nixos.org/packages?channel=22.11&show=dotnet-sdk_7&from=0&size=50&sort=relevance&type=packages&query=dotnet)
-le nom exact du paquet à installer. Attention à bien prendre le
-paquet qui contient `dotnet-sdk` et non `dotnet-runtime`.
+You can search on [search.nixos.org](https://search.nixos.org/packages?channel=22.11&show=dotnet-sdk_7&from=0&size=50&sort=relevance&type=packages&query=dotnet)
+the exact name of the package to install. Be careful to take the package that contains `dotnet-sdk` and not `dotnet-runtime`.
 
-### Manuellement
+### Manual installation
 
-Vous pouvez vous rendre sur le [site officiel de .NET](https://dotnet.microsoft.com/download/dotnet) pour télécharger
-la version souhaitée de .NET.
+You can go to the [official .NET website](https://dotnet.microsoft.com/download/dotnet) to download the desired version of .NET.
 
-## Utilisation
+## Usage
 
-### Créer un projet
+### Creating a project
 
-Pour créer un projet, cliquez sur `New Solution` dans la fenêtre d'accueil de Rider, puis choisissez `Console Application`.
-Attention à bien choisir `.NET/.NET Core` et pas `.NET Framework`.
+To create a project, click on `New Solution` in the Rider home window, then choose `Console Application`.
+Be careful to choose `.NET/.NET Core` and not `.NET Framework`.
 
-### Ajout de packages (NuGet)
+### Adding a NuGet package
 
-Dans la barre inférieure de Rider, vous pourrez voir un onglet `NuGet`, cliquez dessus pour ouvrir la fenêtre de gestion
-des packages NuGet. Vous pourrez alors rechercher le package souhaité et l'installer.
 
-Vous pouvez également ajouter un package NuGet en ajoutant la ligne suivante dans votre fichier `.csproj` :
+In the bottom bar of Rider, you will see a `NuGet` tab, click on it to open the NuGet package management window.
+You can then search for the desired package and install it.
+
+You can also add a NuGet package by adding the following line to your `.csproj` file:
 
 ```xml
 <ItemGroup>
@@ -108,12 +100,8 @@ Vous pouvez également ajouter un package NuGet en ajoutant la ligne suivante da
 </ItemGroup>
 ```
 
-## Configuration de Rider
-
-N'hésitez pas à suivre notre tutoriel [Jetbrains](../../Tools/Jetbrains) pour configurer Rider (et les autres IDE Jetbrains) correctement.
-
 
 ## Sources
 
--  [Site officiel de .NET](https://dotnet.microsoft.com/download/dotnet)
--  [Site officiel de Rider](https://www.jetbrains.com/rider/)
+-- [Official .NET website](https://dotnet.microsoft.com/download/dotnet)
+-- [Official Rider website](https://www.jetbrains.com/rider/)

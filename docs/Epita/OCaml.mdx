@@ -11,19 +11,19 @@ description: OCaml
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Préparer son environnement de travail pour OCaml
+# Get started with OCaml on macOS
 
-## Prérequis
+## Prerequisites
 
 - [Homebrew](../../Tools/Homebrew)
-- ou [Nix](../../Tools/Nix)
-- Un IDE
+- or [Nix](../../Tools/Nix)
+- An IDE (Emacs, VSCode, ...)
 
 
-## Installation de OCaml
+## Installation
 
-Pour installer OCaml, vous pouvez utiliser brew ou Nix :
-
+To install OCaml, you can use brew or Nix to install the `opam` package.
+`opam` is a package manager for OCaml. It will allow you to install OCaml and other packages.
 
 <Tabs>
 <TabItem value="brew" label="Brew">
@@ -43,36 +43,37 @@ nix-env -iA nixpkgs.opam
 </Tabs>
 
 
-## Initialisation de Opam
+## Initialization
 
-Pour initialiser Opam, vous pouvez utiliser la commande suivante :
+To initialize Opam, you can use the following command:
+
 ```bash
 opam init
 eval $(opam env)
 ```
 
-## Installation des packages supplémentaires
+## Install additional packages
 
-Plusieurs packages sont nécessaires pour travailler avec OCaml. Voici une liste de paquets à installer :
+Many packages are required to work with OCaml. Here is a list of packages to install:
 
 ```bash
 opam install dune utop merlin ocp-indent ocaml-lsp-server tuareg
 ```
 
-- utop : Un terminal interactif pour OCaml, pratique pour tester des fonctions rapidement.
-- merlin, ocp-indent, ocaml-lsp-server : Des outils pour pouvoir utiliser OCaml avec votre IDE favori (VSCode, Vim, Emacs, ...).
-- dune : Un outil pour compiler vos projets OCaml, nécessaire pour le projet d'AFIT
-- tuareg : Un mode pour Emacs pour l'édition de code OCaml
+- utop: An interactive terminal for OCaml, useful for quickly testing functions.
+- merlin, ocp-indent, ocaml-lsp-server: Tools to be able to use OCaml with your favorite IDE (VSCode, Vim, Emacs, ...).
+- dune: A tool to compile your OCaml projects, necessary for the AFIT project
+- tuareg: A mode for Emacs for editing OCaml code
 
-En bonus, si vous aimez les tests unitaires, vous pouvez installer le package `alcotest` :
+In addition, if you like unit tests, you can install the `alcotest` package:
 
 ```bash
 opam install alcotest
 ```
 
-## Execution de OCaml
+## Execute OCaml code
 
-C'est super simple, il suffit de lancer la commande `ocaml` dans votre terminal, ou `utop` si vous avez installé le package `utop` :
+It's easy, just run the `ocaml` command in your terminal, or `utop` if you have installed the `utop` package:
 
 ```bash
 ❯ ocaml
@@ -83,20 +84,17 @@ val x : int = 42
 - : int = 84
 ```
 
-## Configuration de l'IDE
+## Configure your IDE
 
-Vous pouvez utiliser votre IDE favori pour travailler avec OCaml.
-L'IDE recommandé pour l'OCaml par Epita est [Emacs](../../Tools/Emacs), mais vous pouvez utiliser n'importe quel IDE qui supporte OCaml.
-
+You can use your favorite IDE to work with OCaml.
+The IDE recommended for OCaml by Epita is [Emacs](../../Tools/Emacs), but you can use any IDE that supports OCaml.
 
 ### Emacs
 
-L'avantage du mode tuareg pour Emacs est que vous pouvez copier-coller le contenu d'un buffer dans une instance de `ocaml` directement depuis Emacs.
+There is a big advantage of using the tuareg mode for Emacs: you can copy-paste the content of a buffer into an `ocaml` instance directly from Emacs.
 
-Pour configurer Ocaml, utilisez le fichier `.emacs` suivant (qui se trouve dans
-votre dossier personnel `/Users/<votre nom>/.emacs` sur Mac).
-
-Si vous avez déjà un fichier `.emacs`, vous pouvez simplement ajouter les lignes à la fin de votre fichier.
+You can configure OCaml with the following `.emacs` file (which is located in your home folder `/Users/<your name>/.emacs` on Mac).
+If you already have an `.emacs` file, you can simply add the lines at the end of your file.
 
 ```emacs-lisp title=".emacs"
 (require 'package)
@@ -118,34 +116,33 @@ Si vous avez déjà un fichier `.emacs`, vous pouvez simplement ajouter les lign
       (package-install 'ocp-indent))))
 ```
 
-Lorsque vous ouvrez un fichier `.ml` ou `.mli`, Emacs devrait automatiquement utiliser le mode `tuareg`
-pour colorer le code, et ajouter un menu `Tuareg` dans la barre de menu.
+When you open a `.ml` or `.mli` file, Emacs should automatically use the `tuareg` mode
+to color the code, and add a `Tuareg` menu in the menu bar.
 
-Les raccourcis clavier suivants sont disponibles :
-- `C-c C-e` : Execute la ligne courante
-- `C-c C-r` : Execute la région sélectionnée
-- `C-c C-k` : Tue le buffer courant
+The shortcuts are as follows:
+- `C-c C-e` : Execute the current line
+- `C-c C-r` : Execute the selected region
+- `C-c C-k` : Kill the current buffer
 
 
 ### VSCode
 
-Nous vous recommandons d'utiliser l'extension [OCaml Platform](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform).
+We recommend using the [OCaml Platform](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform) extension.
+It allows you to use OCaml with VSCode, and to have full support for `.ml` and `.mli` files (syntax highlighting, autocompletion, ...).
 
-Elle permet d'utiliser OCaml avec VSCode, et d'avoir un support complet pour les fichiers `.ml` et `.mli` (coloration syntaxique, autocomplétion, ...).
 
+## Manage multiple OCaml environments
 
-## Gérer différentes versions d'OCaml
+If you need to manage multiple OCaml environments, you can use `opam switch` to create virtual environments.
 
-Si vous avez besoin de gérer plusieurs environnements OCaml, vous pouvez utiliser `opam switch` pour créer des environnements virtuels.
-
-Par exemple, pour créer un environnement virtuel `ocaml-4.13.1` avec OCaml 4.13.1, vous pouvez utiliser la commande suivante :
+For example, to create a virtual environment `ocaml-4.13.1` with OCaml 4.13.1, you can use the following command:
 
 ```bash
 opam switch create ocaml-4.13.1 4.13.1
 eval $(opam env)
 ```
 
-Vous pourrez ensuite utiliser `opam switch` pour basculer entre les différents environnements virtuels.
+You can then use `opam switch` to switch between different virtual environments.
 
 ```bash
 ❯ opam switch
@@ -155,7 +152,7 @@ Vous pourrez ensuite utiliser `opam switch` pour basculer entre les différents 
 ```
 
 :::info
-En changeant d'environnement virtuel, vous pouvez avoir besoin de réinstaller les packages supplémentaires que vous aviez installés au préalable.
+When changing virtual environment, you may need to reinstall the additional packages you had installed previously.
 :::
 
 ## Sources

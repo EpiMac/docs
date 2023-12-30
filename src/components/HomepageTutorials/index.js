@@ -7,7 +7,7 @@ import Link from '@docusaurus/Link';
 const CardList = [
     {
         title: 'Apple Developer with EpiMac',
-        description: "Demandez votre accès au programme Apple Developer et commencez à développer vos applications pour iOS, iPadOS, macOS, watchOS et tvOS.",
+        description: "Request your access to the Apple Developer program and start developing your applications for iOS, iPadOS, macOS, watchOS and tvOS.",
         link: '/docs/developer-account'
     },
 
