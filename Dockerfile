@@ -1,14 +1,16 @@
-FROM node:latest as build
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY ./package.json /app/
-RUN npm install
-COPY . /app
+FROM node:18-alpine as build
+
+ENV NPM_CONFIG_LOGLEVEL=warn
+ENV NPM_CONFIG_COLOR=false
+
+WORKDIR /home/node/app
+
+COPY --chown=node:node . .
+
+RUN npm ci
+USER node
 RUN npm run build
 
-FROM nginx:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:stable-alpine as deploy
+WORKDIR /home/node/app
+COPY --chown=node:node --from=build /home/node/app/build /usr/share/nginx/html
