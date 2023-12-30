@@ -9,6 +9,12 @@ const CardList = [
         title: 'Apple Developer with EpiMac',
         description: "Demandez votre accès au programme Apple Developer et commencez à développer vos applications pour iOS, iPadOS, macOS, watchOS et tvOS.",
         link: '/docs/developer-account'
+    },
+
+    {
+        title: 'Asahi Linux : A linux distribution for Apple Silicon',
+        description: "Whether you're just curious or an advanced user, come and discover the wonderful world of Asahi Linux.",
+        link: '/docs/Asahi/asahi-linux'
     }
 ];
 
