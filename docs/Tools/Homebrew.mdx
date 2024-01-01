@@ -1,74 +1,72 @@
 ---
 sidebar_position: 1
 title: Homebrew
-description: Homebrew est un gestionnaire de paquets pour macOS.
+description: Homebrew is a package manager for macOS.
 tags:
   - macOS
-  - Gestionnaire de paquets
+  - Package Manager
 ---
 
 # Homebrew
 
-[Homebrew](https://brew.sh/) est un gestionnaire de paquets pour macOS.
-Vous pouvez l'utiliser pour installer des logiciels depuis votre terminal.
-
+[Homebrew](https://brew.sh/) is a package manager for macOS.
+You can use it to install software from your terminal.
 
 ## Installation
 
-Pour installer Homebrew, exécutez la commande suivante dans votre terminal :
+To install Homebrew, run the following command in your terminal:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Utilisation
+## Usage
 
-### Installer un paquet
+### Install a package
 
-Pour installer un paquet (formula dans la terminologie Brew), exécutez la commande suivante dans votre terminal :
+To install a package (formula in Brew terminology), run the following command in your terminal:
 
 ```bash
 brew install <formula> [<formula> ...]
 ```
 
 :::note
-Certains paquets sont des casks (applications graphiques). Pour les installer, utilisez la commande `brew install --cask <formula>`.
-Dans le doute, vous devriez chercher le paquet sur [le site de Homebrew](https://formulae.brew.sh/) ou via la commande `brew search <formula>`.
+Some packages are casks (graphical applications). To install them, use the command `brew install --cask <formula>`.
+When in doubt, you should search for the package on [the Homebrew website](https://formulae.brew.sh/) or via the command `brew search <formula>`.
 :::
 
 :::note
-Quand vous installez un paquet, Homebrew fait aussi la mise à jour de tous les paquets déjà installés, ce qui peut prendre un certain temps !
+When you install a package, Homebrew also updates all the packages already installed, which can take some time!
 :::
 
-### Désinstaller un paquet
+### Uninstall a package
 
 ```bash
 brew uninstall <formula> [<formula> ...]
 ```
 
-### Mettre à jour un paquet
+### Update Homebrew
 
-Pour mettre à jour un paquet, exécutez la commande suivante dans votre terminal :
+To update Homebrew, run the following command in your terminal:
 
 ```bash
 brew upgrade <formula> [<formula> ...]
 ```
 
-## Installer des paquets Intel sur Apple Silicon
+## Install Intel packages on Apple Silicon
 
-Si vous utilisez un Mac avec une puce Apple Silicon (M1/M2), vous pouvez installer
-des paquets Intel grâce à Apple Rosetta 2.
+If you are using a Mac with an Apple Silicon chip (M1/M2/M3), you can install Intel packages thanks to Apple Rosetta 2.
 
-Pourquoi ? Parce que certains paquets ne sont pas encore disponibles en version native pour Apple Silicon.
-Vous pouvez regarder [cette liste](https://isapplesiliconready.com/) pour voir si vos paquets sont disponibles en version native.
+Why? Because some packages are not yet available in native version for Apple Silicon.
+You can check [this list](https://isapplesiliconready.com/) to see if your packages are available in native version.
 
-Si vous n'avez pas activé Rosetta 2, vous pouvez le faire en exécutant la commande suivante dans votre terminal :
+If you haven't activated Rosetta 2, you can do so by running the following command in your terminal:
 
 ```bash
 softwareupdate --install-rosetta
 ```
 
-Pour cela, exécutez la commande suivante dans votre terminal :
+Then, to install an Intel package, run the following command in your terminal:
 
 ```bash
 arch -x86_64 brew install <formula> [<formula> ...]
@@ -77,5 +75,5 @@ arch -x86_64 brew install <formula> [<formula> ...]
 
 ## Ressources
 
-- [Site officiel](https://brew.sh/)
+- [Official website](https://brew.sh/)
 - [Intel Packages on Apple Silicon](https://www.wisdomgeek.com/development/installing-intel-based-packages-using-homebrew-on-the-m1-mac/)

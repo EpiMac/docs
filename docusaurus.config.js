@@ -30,8 +30,8 @@ const config = {
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'fr',
-        locales: ['fr'],
+        defaultLocale: 'en',
+        locales: ['fr', 'en'],
     },
 
     presets: [
@@ -45,7 +45,13 @@ const config = {
                     // Remove this to remove the "edit this page" links.
                     // editUrl: 'https://github.com/epimac',
                 },
-                blog: false,
+                blog: {
+                    blogTitle: 'Epimac Blog',
+                    blogDescription: 'All the news about Epimac and its projects',
+                    postsPerPage: 'ALL',
+                    blogSidebarTitle: 'All posts',
+                    blogSidebarCount: 'ALL',
+                },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
@@ -72,6 +78,16 @@ const config = {
                         position: 'left',
                         label: 'Tutorials',
                     },
+                    {
+                        to: 'blog',
+                        label: 'Blog',
+                        position: 'left'
+                    },
+                    // NOT ACTIVE FOR THE MOMENT
+                    // {
+                    //     type: 'localeDropdown',
+                    //     position: 'right',
+                    // },
                     {
                         href: 'https://github.com/epimac/docs',
                         label: 'GitHub',
@@ -127,7 +143,7 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ['csharp', 'yaml', 'lisp', 'bash', 'json' ],
+                additionalLanguages: ['csharp', 'yaml', 'lisp', 'bash', 'json'],
             },
         },
 };
