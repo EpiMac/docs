@@ -63,7 +63,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         {
             // Replace with your project's social card
-            image: 'img/embed.webp',
+            image: 'img/embed2.webp',
             navbar: {
                 title: 'Epimac',
                 logo: {
